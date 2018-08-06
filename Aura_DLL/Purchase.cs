@@ -54,6 +54,7 @@ namespace Aura.Model
 
             comments = row[22] is DBNull ? "" : (string)row[22];
             law = row[23] is DBNull ? 0 : (int)(long)row[23];
+            withAZK = row[24] is DBNull ? 0 : (int)(long)row[24];
 
         }
 
@@ -91,6 +92,7 @@ namespace Aura.Model
         /// 2 - 223 ФЗ, 
         /// </summary>
         public int law;                     //закон, по которой проводится процедура
+        public int withAZK;                 //занесена ли закупка в АЦК
 
     }
 

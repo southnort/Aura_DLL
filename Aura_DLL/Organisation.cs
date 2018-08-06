@@ -17,20 +17,29 @@ namespace Aura.Model
 
         public Organisation(DataRow row)
         {
-            id = row[0] is DBNull ? 0 : (int)(long)row[0];
-            name = row[1] is DBNull ? "" : (string)row[1];
-            inn = row[2] is DBNull ? "" : (string)row[2];
-            phoneNumber = row[3] is DBNull ? "" : (string)row[3];
-            contactName = row[4] is DBNull ? "" : (string)row[4];
-            email = row[5] is DBNull ? "" : (string)row[5];
+            try
+            {
+                id = row[0] is DBNull ? 0 : (int)(long)row[0];
+                name = row[1] is DBNull ? "" : (string)row[1];
+                inn = row[2] is DBNull ? "" : (string)row[2];
+                phoneNumber = row[3] is DBNull ? "" : (string)row[3];
+                contactName = row[4] is DBNull ? "" : (string)row[4];
+                email = row[5] is DBNull ? "" : (string)row[5];
 
-            originalID = row[6] is DBNull ? 0 : (int)(long)row[6];
-            contractNumber = row[7] is DBNull ? "" : (string)row[7];
-            contractStart = row[8] is DBNull ? DateTime.MinValue.ToShortDateString() : (string)row[8];
-            contractEnd = row[9] is DBNull ? DateTime.MinValue.ToShortDateString() : (string)row[9];
-            comments = row[10] is DBNull ? "" : (string)row[10];
-            contractCondition = row[11] is DBNull ? 0 : (int)(long)row[11];
-            law = row[12] is DBNull ? 0 : (int)(long)row[12];
+                originalID = row[6] is DBNull ? 0 : (int)(long)row[6];
+                contractNumber = row[7] is DBNull ? "" : (string)row[7];
+                contractStart = row[8] is DBNull ? DateTime.MinValue.ToShortDateString() : (string)row[8];
+                contractEnd = row[9] is DBNull ? DateTime.MinValue.ToShortDateString() : (string)row[9];
+                comments = row[10] is DBNull ? "" : (string)row[10];
+                contractCondition = row[11] is DBNull ? 0 : (int)(long)row[11];
+                law = row[12] is DBNull ? 0 : (int)(long)row[12];
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                throw ex;
+            }
+
 
         }
 
