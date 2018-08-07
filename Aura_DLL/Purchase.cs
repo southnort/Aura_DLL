@@ -55,8 +55,12 @@ namespace Aura.Model
             comments = row[22] is DBNull ? "" : (string)row[22];
             law = row[23] is DBNull ? 0 : (int)(long)row[23];
             withAZK = row[24] is DBNull ? 0 : (int)(long)row[24];
-            employeDocumantationID = row[25] is DBNull ? 0 : (int)(long)row[25];
+            employeDocumentationID = row[25] is DBNull ? 0 : (int)(long)row[25];
             resultOfControl = row[26] is DBNull ? "" : (string)row[26];
+            protocolStatusID = row[27] is DBNull ? 0 : (int)(long)row[27];
+            bidsReviewDate = row[28]is DBNull? DateTime.MinValue.ToShortDateString() : (string)row[28];
+            bidsRatingDate = row[29] is DBNull ? DateTime.MinValue.ToShortDateString() : (string)row[29];
+            controlStatus = row[30] is DBNull ? 0 : (int)(long)row[30];
 
         }
 
@@ -95,8 +99,12 @@ namespace Aura.Model
         /// </summary>
         public int law;                     //закон, по которой проводится процедура
         public int withAZK;                 //занесена ли закупка в АЦК. 0 - занесена, 1- нет
-        public int employeDocumantationID;  //ID юзера, ответственного за подготовку документации
+        public int employeDocumentationID;  //ID юзера, ответственного за подготовку документации
         public string resultOfControl;      //результаты проверки
+        public int protocolStatusID;        //статус протокола закупки
+        public string bidsReviewDate;       //дата рассмотрения заявок
+        public string bidsRatingDate;       //дата оценки заявок
+        public int controlStatus;           //проверено или не проверено
 
 
 
