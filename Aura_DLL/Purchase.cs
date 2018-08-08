@@ -105,7 +105,7 @@ namespace Aura.Model
         public string bidsReviewDate;       //дата рассмотрения заявок
         public string bidsRatingDate;       //дата оценки заявок
         public int controlStatus;           //проверено или не проверено
-
+        public int colorMark;               //индекс цвета для пометки закупки
 
 
     }
