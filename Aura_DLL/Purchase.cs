@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 
+
 namespace Aura.Model
 {
     [Serializable]
@@ -61,6 +62,7 @@ namespace Aura.Model
             bidsReviewDate = row[28]is DBNull? DateTime.MinValue.ToShortDateString() : (string)row[28];
             bidsRatingDate = row[29] is DBNull ? DateTime.MinValue.ToShortDateString() : (string)row[29];
             controlStatus = row[30] is DBNull ? 0 : (int)(long)row[30];
+            colorMark = row[31] is DBNull ? 0 : (int)(long)row[31];
 
         }
 
@@ -105,7 +107,7 @@ namespace Aura.Model
         public string bidsReviewDate;       //дата рассмотрения заявок
         public string bidsRatingDate;       //дата оценки заявок
         public int controlStatus;           //проверено или не проверено
-        public int colorMark;               //индекс цвета для пометки закупки
+        public int colorMark;               //цветовая отметка закупки. Берется из Color.ToArgb()
 
 
     }
