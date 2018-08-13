@@ -59,10 +59,13 @@ namespace Aura.Model
             employeDocumentationID = row[25] is DBNull ? 0 : (int)(long)row[25];
             resultOfControl = row[26] is DBNull ? "" : (string)row[26];
             protocolStatusID = row[27] is DBNull ? 0 : (int)(long)row[27];
-            bidsReviewDate = row[28]is DBNull? DateTime.MinValue.ToShortDateString() : (string)row[28];
+            bidsReviewDate = row[28] is DBNull ? DateTime.MinValue.ToShortDateString() : (string)row[28];
             bidsRatingDate = row[29] is DBNull ? DateTime.MinValue.ToShortDateString() : (string)row[29];
             controlStatus = row[30] is DBNull ? 0 : (int)(long)row[30];
             colorMark = row[31] is DBNull ? 0 : (int)(long)row[31];
+
+            commentsFontColor = row[32] is DBNull ? 0 : (int)(long)row[32];
+            resultOfControlColor = row[33] is DBNull ? 0 : (int)(long)row[33];
 
         }
 
@@ -108,6 +111,9 @@ namespace Aura.Model
         public string bidsRatingDate;       //дата оценки заявок
         public int controlStatus;           //проверено или не проверено
         public int colorMark;               //цветовая отметка закупки. Берется из Color.ToArgb()
+
+        public int commentsFontColor;       //цвет комментариев. Берется из Color.ToArgbs()
+        public int resultOfControlColor;    //цвет текста результата контроля. Берется из Color.ToArgbs()
 
 
     }
