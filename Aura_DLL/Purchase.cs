@@ -66,6 +66,8 @@ namespace Aura.Model
 
             commentsFontColor = row[32] is DBNull ? 0 : (int)(long)row[32];
             resultOfControlColor = row[33] is DBNull ? 0 : (int)(long)row[33];
+            employeReestID = row[34] is DBNull ? 0 : (int)(long)row[34];
+            reestrStatus = row[35] is DBNull ? 0 : (int)(long)row[35];
 
         }
 
@@ -91,7 +93,7 @@ namespace Aura.Model
         public string contractDatePlan;     //дата подписания контракта (планируемая)
         public string contractDateLast;     //дата подписания контракта (крайняя)
         public string contractDateReal;     //дата подписания контракта (фактическая)
-        public string reestrDateLast;       //дата внесения контракта в реестр (крайняя)
+        public string reestrDateLast;       //дата внесения контракта в реестр (фактическая)
         public string reestrNumber;         //реестровый номер контракта в ЕИС
 
         public string comments;             //комментарии к закупке
@@ -114,6 +116,8 @@ namespace Aura.Model
 
         public int commentsFontColor;       //цвет комментариев. Берется из Color.ToArgbs()
         public int resultOfControlColor;    //цвет текста результата контроля. Берется из Color.ToArgbs()
+        public int employeReestID;          //ID юзера, ответственного за занесение в реест
+        public int reestrStatus;            //внесено или не внесено в реестр
 
 
     }
