@@ -33,6 +33,7 @@ namespace Aura.Model
                 comments = row[10] is DBNull ? "" : (string)row[10];
                 contractCondition = row[11] is DBNull ? 0 : (int)(long)row[11];
                 law = row[12] is DBNull ? 0 : (int)(long)row[12];
+                contractType = row[13] is DBNull ? 0 : (int)(long)row[13];
             }
             catch (Exception ex)
             {
@@ -84,6 +85,8 @@ namespace Aura.Model
         /// 3 - 44 и 223, 
         /// </summary>
         public int law;     //закон, по которому заключен договор обслуживания
+
+        public int contractType;    //тип договора (разовый или постоянный)
 
 
 
