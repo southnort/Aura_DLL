@@ -10,3 +10,4 @@ C:\Users\Ярик\Documents\Projects\Aura_DLL\Aura_DLL\bin\Debug\Aura_DLL.pdb
 C:\Users\Ярик\Documents\Projects\Aura_DLL\Aura_DLL\obj\Debug\Aura_DLL.csproj.CoreCompileInputs.cache
 C:\Users\Ярик\Documents\Projects\Aura_DLL\Aura_DLL\obj\Debug\Aura_DLL.dll
 C:\Users\Ярик\Documents\Projects\Aura_DLL\Aura_DLL\obj\Debug\Aura_DLL.pdb
+C:\Users\Ярик\Documents\Projects\Aura_DLL\Aura_DLL\obj\Debug\Aura_DLL.csprojAssemblyReference.cache
