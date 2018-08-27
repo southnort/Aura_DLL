@@ -90,8 +90,8 @@ namespace Aura.Model
         public string bidsFinishDate;       //дата подведения итогов
 
         public float contractPrice;         //цена заключенного контракта
-        public string contractDatePlan;     //дата подписания контракта (планируемая)
-        public string contractDateLast;     //дата подписания контракта (крайняя)
+        public string contractDatePlan;     //НЕ ИСПОЛЬЗУЕТСЯ
+        public string contractDateLast;     //НЕ ИСПОЛЬЗУЕТСЯ
         public string contractDateReal;     //дата подписания контракта (фактическая)
         public string reestrDateLast;       //дата внесения контракта в реестр (фактическая)
         public string reestrNumber;         //реестровый номер контракта в ЕИС
