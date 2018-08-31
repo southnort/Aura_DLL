@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+
 
 namespace Aura.Model
 {
@@ -41,23 +40,23 @@ namespace Aura.Model
             string dateStr = date.ToString();
             string eventStr = "";
 
-            if (dateStr == pur.bidsStartDate)
+            if (date == pur.bidsStartDate)
                 eventStr = "Начало подачи заявок";
-            else if (dateStr == pur.bidsEndDate)
+            else if (date == pur.bidsEndDate)
                 eventStr = "Окончание подачи заявок";
-            else if (dateStr == pur.bidsOpenDate)
+            else if (date == pur.bidsOpenDate)
                 eventStr = "Вскрытие конвертов";
-            else if (dateStr == pur.bidsFirstPartDate)
+            else if (date == pur.bidsFirstPartDate)
                 eventStr = "Рассмотрение первых частей";
-            else if (dateStr == pur.auctionDate)
+            else if (date == pur.auctionDate)
                 eventStr = "Аукцион";
-            else if (dateStr == pur.bidsSecondPartDate)
+            else if (date == pur.bidsSecondPartDate)
                 eventStr = "Рассмотрение вторых частей";
-            else if (dateStr == pur.bidsFinishDate)
+            else if (date == pur.bidsFinishDate)
                 eventStr = "Дата подведения итогов";
-            else if (dateStr == pur.contractDateLast)
+            else if (date == pur.contractDateLast)
                 eventStr = "Подписать контракт";
-            else if (dateStr == pur.reestrDateLast)
+            else if (date == pur.reestrDateLast)
                 eventStr = "Внести контракт в реестр";
 
 
