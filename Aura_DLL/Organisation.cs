@@ -99,7 +99,7 @@ namespace Aura.Model
         {
             try
             {
-                return DateTime.ParseExact((string)ob, "yyyy-MM-dd", CultureInfo.InvariantCulture);
+                return DateTime.ParseExact((string)ob, "yyyy-MM-dd-HH-mm", CultureInfo.InvariantCulture);
             }
 
             catch
