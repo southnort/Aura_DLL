@@ -1,14 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 
-
 namespace Aura.Model
 {
     [Serializable]
     public class DayInCalendar
     {
-        //класс описывающий один день из календаря.
-        //хранит в себе список закупок, для которых этот день важен
+        //класс описывающий один день из календаря. 
+        //хранит в себе список закупок, для которых этот день важен 
         public DayInCalendar(DateTime date)
         {
             this.date = date;
@@ -18,46 +17,55 @@ namespace Aura.Model
         public DateTime date { get; private set; }
         private List<Purchase> purchases = new List<Purchase>();
 
-        public Dictionary<Purchase, string> events = 
-            new Dictionary<Purchase, string>();    //описание событий в этот день
+        public Dictionary<Purchase, string> events =
+        new Dictionary<Purchase, string>(); //описание событий в этот день 
 
 
         public void Add(Purchase purchase)
         {
-            //добавить новую закупку, если она еще не добавлена
+            //добавить новую закупку, если она еще не добавлена 
             if (!purchases.Contains(purchase))
             {
                 purchases.Add(purchase);
+                handlePurchase(purchase);
             }
 
         }
 
         private void handlePurchase(Purchase pur)
         {
-            //метод проверяет, какое именно событие назначено на эту дату
-            // и добавляет соответствующее описание
+            //метод проверяет, какое именно событие назначено на эту дату 
+            // и добавляет соответствующее описание 
 
-            string dateStr = date.ToString();
             string eventStr = "";
 
-            if (date == pur.bidsStartDate)
+            if (DateEqual(pur.bidsStartDate))
                 eventStr = "Начало подачи заявок";
-            else if (date == pur.bidsEndDate)
+            else if (DateEqual(pur.bidsEndDate))
                 eventStr = "Окончание подачи заявок";
-            else if (date == pur.bidsOpenDate)
+
+            else if (DateEqual(pur.bidsOpenDate))
                 eventStr = "Вскрытие конвертов";
-            else if (date == pur.bidsFirstPartDate)
+            else if (DateEqual(pur.bidsReviewDate))
+                eventStr = "Рассмотрение";
+            else if (DateEqual(pur.bidsRatingDate))
+                eventStr = "Оценка";
+
+            else if (DateEqual(pur.bidsFirstPartDate))
                 eventStr = "Рассмотрение первых частей";
-            else if (date == pur.auctionDate)
-                eventStr = "Аукцион";
-            else if (date == pur.bidsSecondPartDate)
+            else if (DateEqual(pur.bidsSecondPartDate))
                 eventStr = "Рассмотрение вторых частей";
-            else if (date == pur.bidsFinishDate)
+            else if (DateEqual(pur.auctionDate))
+                eventStr = "Аукцион";
+            else if (DateEqual(pur.bidsFinishDate))
                 eventStr = "Дата подведения итогов";
-            else if (date == pur.contractDateLast)
-                eventStr = "Подписать контракт";
-            else if (date == pur.reestrDateLast)
-                eventStr = "Внести контракт в реестр";
+
+            //else if (dateStr == pur.contractDateLast)
+            //    eventStr = "Подписать контракт";
+            //else if (dateStr == pur.reestrDateLast)
+            //    eventStr = "Внести контракт в реестр";
+            else if (DateEqual(pur.auctionDate))
+                eventStr = "Аукцион";
 
 
             if (eventStr != "")
@@ -65,7 +73,14 @@ namespace Aura.Model
 
         }
 
-        
+        private bool DateEqual(DateTime purDate)
+        {
+            return (
+                date.Year == purDate.Year &&
+                date.Month == purDate.Month &&
+                date.Day == purDate.Day
+                );
+        }
 
     }
 }
