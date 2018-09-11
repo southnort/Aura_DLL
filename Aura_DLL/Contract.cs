@@ -45,20 +45,15 @@ namespace Aura.Model
 
         private DateTime ToDateTime(object ob)
         {
-            if (ob is DBNull)
+            try
+            {
+                return DateTime.ParseExact((string)ob, "yyyy-MM-dd-HH-mm", CultureInfo.InvariantCulture);
+            }
+
+            catch
+            {
                 return DateTime.MinValue;
-            else
-                return DateTime.Parse((string)ob);
-
-            //try
-            //{
-            //    return DateTime.Parse((string)ob);
-            //}
-
-            //catch
-            //{
-            //    return DateTime.MinValue;
-            //}
+            }
         }
     }
 }
