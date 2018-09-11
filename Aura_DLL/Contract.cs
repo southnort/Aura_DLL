@@ -5,7 +5,7 @@ using System.Globalization;
 namespace Aura.Model
 {
     [Serializable]
-   public class Contract
+    public class Contract
     {
         //класс, описывающий договор с заказчиком.
         //223 или 44 указывается в самой организации
@@ -52,7 +52,14 @@ namespace Aura.Model
 
             catch
             {
-                return DateTime.MinValue;
+                try
+                {
+                    return DateTime.ParseExact((string)ob, "yyyy-MM-dd", CultureInfo.InvariantCulture);
+                }
+                catch
+                {
+                    return DateTime.MinValue;
+                }
             }
         }
     }
