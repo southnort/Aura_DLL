@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Data;
-using System.Globalization;
+using AuraDLL.Methods;
 
 namespace Aura.Model
 {
@@ -22,8 +22,8 @@ namespace Aura.Model
                 id = row[0] is DBNull ? 0 : (long)row[0];
                 organisationID = row[1] is DBNull ? 0 : (long)row[1];
                 contractNumber = row[2] is DBNull ? "" : (string)row[2];
-                contractStart = ToDateTime(row[3]);
-                contractEnd = ToDateTime(row[4]);
+                contractStart = Methods.ToDateTime(row[3]);
+                contractEnd = Methods.ToDateTime(row[4]);
 
             }
 
@@ -43,17 +43,6 @@ namespace Aura.Model
         public DateTime contractStart;
         public DateTime contractEnd;
 
-        private DateTime ToDateTime(object ob)
-        {
-            try
-            {
-                return DateTime.ParseExact((string)ob, "yyyy-MM-dd-HH-mm", CultureInfo.InvariantCulture);
-            }
-
-            catch
-            {
-                return DateTime.MinValue;
-            }
-        }
+       
     }
 }

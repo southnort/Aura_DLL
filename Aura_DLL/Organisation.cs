@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Data;
-using System.Globalization;
-
+using AuraDLL.Methods;
 
 namespace Aura.Model
 {
@@ -27,8 +26,8 @@ namespace Aura.Model
 
                 originalID = row[6] is DBNull ? 0 : (int)(long)row[6];
                 contractNumber = row[7] is DBNull ? "" : (string)row[7];
-                contractStart = ToDateTime(row[8]);
-                contractEnd = ToDateTime(row[9]);
+                contractStart = Methods.ToDateTime(row[8]);
+                contractEnd = Methods.ToDateTime(row[9]);
                 comments = row[10] is DBNull ? "" : (string)row[10];
                 contractCondition = row[11] is DBNull ? 0 : (int)(long)row[11];
                 law = row[12] is DBNull ? 0 : (int)(long)row[12];
@@ -97,19 +96,6 @@ namespace Aura.Model
 
         public string contractsIDs;     //ID договоров из БД договоров
 
-
-
-        private DateTime ToDateTime(object ob)
-        {
-            try
-            {
-                return DateTime.ParseExact((string)ob, "yyyy-MM-dd-HH-mm", CultureInfo.InvariantCulture);
-            }
-
-            catch
-            {
-                return DateTime.MinValue;
-            }
-        }
+                      
     }
 }

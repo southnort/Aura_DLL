@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Data;
-using System.Globalization;
+using AuraDLL.Methods;
 
 
 namespace Aura.Model
@@ -119,15 +119,7 @@ namespace Aura.Model
 
         private DateTime ToDateTime(object ob)
         {
-            try
-            {
-                return DateTime.ParseExact((string)ob, "yyyy-MM-dd-HH-mm", CultureInfo.InvariantCulture);
-            }
-
-            catch
-            {
-                return DateTime.MinValue;
-            }
+            return Methods.ToDateTime(ob);
         }
 
     }

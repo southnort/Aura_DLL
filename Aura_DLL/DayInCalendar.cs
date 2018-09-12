@@ -59,11 +59,7 @@ namespace Aura.Model
                 eventStr = "Аукцион";
             else if (DateEqual(pur.bidsFinishDate))
                 eventStr = "Дата подведения итогов";
-
-            //else if (dateStr == pur.contractDateLast)
-            //    eventStr = "Подписать контракт";
-            //else if (dateStr == pur.reestrDateLast)
-            //    eventStr = "Внести контракт в реестр";
+            
             else if (DateEqual(pur.auctionDate))
                 eventStr = "Аукцион";
 
