@@ -31,7 +31,7 @@ namespace Aura.Model
             purchaseMethodID = row[3] is DBNull ? 0 : (int)(long)row[3];
             purchaseName = row[4] is DBNull ? "" : (string)row[4];
             statusID = row[5] is DBNull ? 0 : (int)(long)row[5];
-            purchacePrice = row[6] is DBNull ? 0 : (float)(double)row[6];
+            purchacePrice = row[6] is DBNull ? 0 : (double)row[6];
 
             purchaseEisNum = row[7] is DBNull ? "" : (string)row[7];
             purchaseEisDate = ToDateTime(row[8]);
@@ -43,7 +43,7 @@ namespace Aura.Model
             bidsSecondPartDate = ToDateTime(row[14]);
             bidsFinishDate = ToDateTime(row[15]);
 
-            contractPrice = row[16] is DBNull ? 0 : (float)(double)row[16];
+            contractPrice = row[16] is DBNull ? 0 : (double)row[16];
             contractDatePlan = ToDateTime(row[17]);
             contractDateLast = ToDateTime(row[18]);
             contractDateReal = ToDateTime(row[19]);
@@ -74,7 +74,7 @@ namespace Aura.Model
         public int purchaseMethodID;        //индекс способа определения поставщика
         public string purchaseName;         //наименование объекта закупки
         public int statusID;                //идентификатор статуса. Подача заявок, рассмотрение итд
-        public float purchacePrice;         //НМЦК, начальная цена
+        public double purchacePrice;         //НМЦК, начальная цена
 
         public string purchaseEisNum;       //номер извещения в ЕИСе
         public DateTime purchaseEisDate;      //дата публикации извещения в ЕИС
@@ -86,7 +86,7 @@ namespace Aura.Model
         public DateTime bidsSecondPartDate;   //дата рассмотрения вторых частей
         public DateTime bidsFinishDate;       //дата подведения итогов
 
-        public float contractPrice;         //цена заключенного контракта
+        public double contractPrice;         //цена заключенного контракта
         public DateTime contractDatePlan;     //НЕ ИСПОЛЬЗУЕТСЯ
         public DateTime contractDateLast;     //НЕ ИСПОЛЬЗУЕТСЯ
         public DateTime contractDateReal;     //дата подписания контракта (фактическая)
