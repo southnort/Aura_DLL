@@ -19,6 +19,8 @@ namespace Aura.Model
 
                 DateTime.MinValue;
 
+            colorMark = -1;
+
         }
 
         public Purchase(DataRow row)
