@@ -52,13 +52,13 @@ namespace Aura.Model
                 eventStr = "Оценка";
 
             else if (DateEqual(pur.bidsFirstPartDate))
-                eventStr = "Рассмотрение первых частей";
+                eventStr = "Первые части";
             else if (DateEqual(pur.bidsSecondPartDate))
-                eventStr = "Рассмотрение вторых частей";
+                eventStr = "Вторые части";
             else if (DateEqual(pur.auctionDate))
                 eventStr = "Аукцион";
             else if (DateEqual(pur.bidsFinishDate))
-                eventStr = "Дата подведения итогов";
+                eventStr = "Подведени итогов";
             
             else if (DateEqual(pur.auctionDate))
                 eventStr = "Аукцион";
