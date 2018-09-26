@@ -67,6 +67,7 @@ namespace Aura.Model
             resultOfControlColor = row[33] is DBNull ? 0 : (int)(long)row[33];
             employeReestID = row[34] is DBNull ? 0 : (int)(long)row[34];
             reestrStatus = row[35] is DBNull ? 0 : (int)(long)row[35];
+            withoutPurchase = row[36] is DBNull ? 0 : (int)(long)row[36];
 
         }
 
@@ -117,6 +118,12 @@ namespace Aura.Model
         public int resultOfControlColor;    //цвет текста результата контроля. Берется из Color.ToArgbs()
         public int employeReestID;          //ID юзера, ответственного за занесение в реест
         public int reestrStatus;            //внесено или не внесено в реестр
+
+        /// <summary>
+        /// внесена через реестр закупок или напрямую договор 
+        /// если == 1, значит внесена напрямую через реестр договоров
+        /// </summary>
+        public int withoutPurchase;         
 
 
         private DateTime ToDateTime(object ob)
