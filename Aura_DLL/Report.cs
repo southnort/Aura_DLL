@@ -20,6 +20,9 @@ namespace Aura.Model
 
         public Report()
         {
+            commonPurchasesContractsReport = "";
+            singleSupplierContractsReport = "";
+            failedPurchasesContractsReport = "";
         }
 
 
