@@ -68,6 +68,7 @@ namespace Aura.Model
             employeReestID = row[34] is DBNull ? 0 : (int)(long)row[34];
             reestrStatus = row[35] is DBNull ? 0 : (int)(long)row[35];
             withoutPurchase = row[36] is DBNull ? 0 : (int)(long)row[36];
+            organisationInn = row[37] is DBNull ? "" : (string)row[37];
 
         }
 
@@ -123,7 +124,8 @@ namespace Aura.Model
         /// внесена через реестр закупок или напрямую договор 
         /// если == 1, значит внесена напрямую через реестр договоров
         /// </summary>
-        public int withoutPurchase;         
+        public int withoutPurchase;
+        public string organisationInn;      //ИНН организации заказчика
 
 
         private DateTime ToDateTime(object ob)
