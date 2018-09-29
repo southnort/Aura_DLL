@@ -34,6 +34,7 @@ namespace Aura.Model
                 contractType = row[13] is DBNull ? 0 : (int)(long)row[13];
 
                 contractsIDs = row[14] is DBNull ? "" : (string)row[14];
+                number = row[15] is DBNull ? "" : (string)row[15];
             }
             catch (Exception ex)
             {
@@ -95,7 +96,8 @@ namespace Aura.Model
         public int contractType;    //тип договора (разовый или постоянный)
 
         public string contractsIDs;     //ID договоров из БД договоров
+        public string number;           //редактируемый номер организации
 
-                      
+
     }
 }
