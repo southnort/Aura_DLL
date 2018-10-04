@@ -40,8 +40,8 @@ namespace Aura.Model
             }
 
             return days;
-        }
-
+        }      
+               
         private void Add(Purchase purchase)
         {
             if (purchase == null) return;

@@ -39,27 +39,27 @@ namespace Aura.Model
 
             string eventStr = "";
 
-            if (DateEqual(pur.bidsStartDate))
-                eventStr = "Начало подачи заявок";
-            else if (DateEqual(pur.bidsEndDate))
-                eventStr = "Окончание подачи заявок";
 
-            else if (DateEqual(pur.bidsOpenDate))
-                eventStr = "Вскрытие конвертов";
-            else if (DateEqual(pur.bidsReviewDate))
-                eventStr = "Рассмотрение";
-            else if (DateEqual(pur.bidsRatingDate))
-                eventStr = "Оценка";
-
-            else if (DateEqual(pur.bidsFirstPartDate))
-                eventStr = "Первые части";
-            else if (DateEqual(pur.bidsSecondPartDate))
-                eventStr = "Вторые части";
+            if (DateEqual(pur.bidsFinishDate))
+                eventStr = "Подведение итогов";
             else if (DateEqual(pur.auctionDate))
                 eventStr = "Аукцион";
-            else if (DateEqual(pur.bidsFinishDate))
-                eventStr = "Подведение итогов";            
-           
+            else if (DateEqual(pur.bidsSecondPartDate))
+                eventStr = "Вторые части";
+            else if (DateEqual(pur.bidsFirstPartDate))
+                eventStr = "Первые части";
+
+            else if (DateEqual(pur.bidsRatingDate))
+                eventStr = "Оценка";
+            else if (DateEqual(pur.bidsReviewDate))
+                eventStr = "Рассмотрение";
+            else if (DateEqual(pur.bidsOpenDate))
+                eventStr = "Вскрытие конвертов";
+
+            else if (DateEqual(pur.bidsEndDate))
+                eventStr = "Окончание подачи заявок";
+            else if (DateEqual(pur.bidsStartDate))
+                eventStr = "Начало подачи заявок";   
 
             if (eventStr != "")
                 events.Add(pur, eventStr);
