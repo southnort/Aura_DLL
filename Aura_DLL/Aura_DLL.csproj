@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Calendar.cs" />
     <Compile Include="Contract.cs" />
     <Compile Include="DayInCalendar.cs" />
     <Compile Include="Methods.cs" />

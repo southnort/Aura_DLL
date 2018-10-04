@@ -58,11 +58,8 @@ namespace Aura.Model
             else if (DateEqual(pur.auctionDate))
                 eventStr = "Аукцион";
             else if (DateEqual(pur.bidsFinishDate))
-                eventStr = "Подведение итогов";
-            
-            else if (DateEqual(pur.auctionDate))
-                eventStr = "Аукцион";
-
+                eventStr = "Подведение итогов";            
+           
 
             if (eventStr != "")
                 events.Add(pur, eventStr);
