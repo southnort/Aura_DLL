@@ -6,7 +6,7 @@ using AuraDLL.Methods;
 namespace Aura.Model
 {
     [Serializable]
-    public class Purchase
+    public class Purchase : ILoggable
     {
         //класс, описывающий объект закупки
 
@@ -127,12 +127,12 @@ namespace Aura.Model
         public int withoutPurchase;
         public string organisationInn;      //ИНН организации заказчика
 
+        public string LogObjectName { get { return "Журнал редактирования организации\n" + purchaseName; } }
 
         private DateTime ToDateTime(object ob)
         {
             return Methods.ToDateTime(ob);
-        }
-
+        }        
     }
 
 }

@@ -49,6 +49,7 @@
     <Compile Include="Calendar.cs" />
     <Compile Include="Contract.cs" />
     <Compile Include="DayInCalendar.cs" />
+    <Compile Include="ILoggable.cs" />
     <Compile Include="Methods.cs" />
     <Compile Include="Organisation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

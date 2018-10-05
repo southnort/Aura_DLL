@@ -5,7 +5,7 @@ using AuraDLL.Methods;
 namespace Aura.Model
 {
     [Serializable]
-    public class Organisation
+    public class Organisation:ILoggable
     {
         //класс, описывающий организацию-заказчика
 
@@ -99,5 +99,7 @@ namespace Aura.Model
         public string number;           //редактируемый номер организации
 
 
+
+        public string LogObjectName { get { return "Журнал обработки оргиназации\n" + name; } }
     }
 }
