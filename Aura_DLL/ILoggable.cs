@@ -2,9 +2,9 @@
 
 namespace Aura.Model
 {
-   interface ILoggable
+    public interface ILoggable
     {
         string LogObjectName { get; }
-       
+        string ItemID { get; }
     }
 }

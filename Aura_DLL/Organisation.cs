@@ -5,7 +5,7 @@ using AuraDLL.Methods;
 namespace Aura.Model
 {
     [Serializable]
-    public class Organisation:ILoggable
+    public class Organisation : ILoggable
     {
         //класс, описывающий организацию-заказчика
 

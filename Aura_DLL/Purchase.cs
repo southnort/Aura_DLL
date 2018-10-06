@@ -132,7 +132,7 @@ namespace Aura.Model
         private DateTime ToDateTime(object ob)
         {
             return Methods.ToDateTime(ob);
-        }        
+        }
     }
 
 }
