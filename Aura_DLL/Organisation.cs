@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data;
 using AuraDLL.Methods;
+using System.Text;
 
 namespace Aura.Model
 {
@@ -101,5 +102,17 @@ namespace Aura.Model
 
 
         public string LogObjectName { get { return "Журнал обработки оргиназации\n" + name; } }
+
+        public string GetSqlString()
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Append("SELECT * FROM Logs WHERE tableName = 'Organisations'");
+            sb.Append(" AND itemID = '");
+            sb.Append(id);
+            sb.Append("'");
+
+            return sb.ToString();
+
+        }
     }
 }

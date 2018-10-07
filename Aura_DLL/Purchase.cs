@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data;
 using AuraDLL.Methods;
+using System.Text;
 
 
 namespace Aura.Model
@@ -132,6 +133,18 @@ namespace Aura.Model
         private DateTime ToDateTime(object ob)
         {
             return Methods.ToDateTime(ob);
+        }
+
+        public string GetSqlString()
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Append("SELECT * FROM Logs WHERE tableName = 'Purchases'");
+            sb.Append(" AND itemID = '");
+            sb.Append(id);
+            sb.Append("'");
+
+            return sb.ToString();
+
         }
     }
 
