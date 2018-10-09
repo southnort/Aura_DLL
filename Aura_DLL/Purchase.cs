@@ -128,7 +128,7 @@ namespace Aura.Model
         public int withoutPurchase;
         public string organisationInn;      //ИНН организации заказчика
 
-        public string LogObjectName { get { return "Журнал редактирования организации\n" + purchaseName; } }
+        public string LogObjectName { get { return "Журнал редактирования\n" + purchaseName; } }
 
         private DateTime ToDateTime(object ob)
         {
