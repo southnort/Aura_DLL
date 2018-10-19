@@ -42,9 +42,9 @@ namespace Aura.Model
 
             if (DateEqual(pur.bidsFinishDate))
                 eventStr = "Подведение итогов";
-            else if (DateEqual(pur.auctionDate))
+            else if (DateEqual(pur.auctionDate) && pur.protocolStatusID != 1)
                 eventStr = "Аукцион";
-            else if (DateEqual(pur.bidsSecondPartDate))
+            else if (DateEqual(pur.bidsSecondPartDate) && pur.protocolStatusID != 1)
                 eventStr = "Вторые части";
             else if (DateEqual(pur.bidsFirstPartDate))
                 eventStr = "Первые части";
@@ -59,7 +59,7 @@ namespace Aura.Model
             else if (DateEqual(pur.bidsEndDate))
                 eventStr = "Окончание подачи заявок";
             else if (DateEqual(pur.bidsStartDate))
-                eventStr = "Начало подачи заявок";   
+                eventStr = "Начало подачи заявок";
 
             if (eventStr != "")
                 events.Add(pur, eventStr);

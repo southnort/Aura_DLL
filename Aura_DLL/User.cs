@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Data;
+using AuraDLL.Methods;
 
 
 namespace Aura.Model
@@ -7,6 +9,23 @@ namespace Aura.Model
     public class User
     {
         //класс, описывающий пользователя системы
+
+        public User()
+        {
+            
+        }
+
+        public User(DataRow row)
+        {
+            ID = row[0] is DBNull ? 0 : (int)(long)row[0];
+            login = row[1] is DBNull ? "" : (string)row[1];
+            password = row[2] is DBNull ? "" : (string)row[2];
+            name = row[3] is DBNull ? "" : (string)row[3];
+            roleID = row[4] is DBNull ? -1 : (int)(long)row[4];
+            dateOfCreation = Methods.ToDateTime(row[5]);
+            dateOfLastEnter = Methods.ToDateTime(row[6]);
+            law = row[7] is DBNull ? 0 : (int)(long)row[7];
+        }
 
                    
         public int ID;
