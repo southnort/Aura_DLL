@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Calendar.cs" />
+    <Compile Include="Catalog.cs" />
     <Compile Include="Contract.cs" />
     <Compile Include="DayInCalendar.cs" />
     <Compile Include="ILoggable.cs" />
@@ -55,6 +56,7 @@
     <Compile Include="Organisation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Purchase.cs" />
+    <Compile Include="PurchaseMethod.cs" />
     <Compile Include="Report.cs" />
     <Compile Include="ReportsList.cs" />
     <Compile Include="User.cs" />
