@@ -94,8 +94,63 @@ namespace Aura.Model
             = new Dictionary<string, string>()
         {
                 //технические названия колонок в классах переводятся в русский текст
+
+                //класс закупки
                 { "id", "id" },
                 { "employeID", "Ответственный за размещение" },
+                { "organizationID", "Организация-заказчик" },
+                { "purchaseMethodID", "Способ размещения" },
+                { "purchaseName", "Наименование объекта закупки" },
+                { "statusID", "Статус" },
+                { "purchacePrice", "НМЦК" },
+
+                { "purchaseEisNum", "Номер извещения в ЕИСе" },
+                { "purchaseEisDate", "Дата публикации извещения в ЕИС" },
+                { "bidsStartDate", "Дата начала подачи заявок" },
+                { "bidsEndDate", "Дата окончания подачи заявок" },
+                { "bidsOpenDate", "Дата вскрытия конвертов" },
+                { "bidsFirstPartDate", "Дата рассмотрения первых частей" },
+                { "auctionDate", "Дата проведения аукциона" },
+                { "bidsSecondPartDate", "Дата рассмотрения вторых частей" },
+                { "bidsFinishDate", "Дата подведения итогов" },
+
+                { "contractPrice", "Цена заключенного контракта" },
+                { "contractDateReal", "Дата подписания контракта" },
+                { "reestrDateLast", "Дата внесения контракта в реестр" },
+                { "reestrNumber", "Реестровый номер контракта в ЕИС" },
+                { "comments", "Комментарии" },
+                { "law", "Закон" },
+                { "withAZK", "С АЦК или нет" },
+                { "employeDocumentationID", "Ответственный за подготовку документации" },
+                { "resultOfControl", "Результаты проверки" },
+
+                { "protocolStatusID", "Статус протокола закупки" },
+                { "bidsReviewDate", "Дата рассмотрения заявок" },
+                { "bidsRatingDate", "Дата оценки заявок" },
+                { "controlStatus", "Проверено" },
+                { "colorMark", "Метка" },
+                { "commentsFontColor", "Цвет комментария" },
+                { "resultOfControlColor", "цвет результата контроля" },
+                { "employeReestID", "Ответственный за занесение в реест" },
+                { "reestrStatus", "Внесено в реест" },
+                { "withoutPurchase", "Только договор" },
+                { "organisationInn", "ИНН организации заказчика" },
+
+
+                //класс организации
+                { "name", "Наименование" },
+                { "inn", "ИНН" },
+                { "phoneNumber", "Номер телефона" },
+                { "contactName", "Контактное лицо" },
+                { "email", "e-mail" },
+                { "originalID", "Оригинал договора" },
+                { "contractNumber", "Номер договора" },
+                { "contractStart", "Срок действия с" },
+                { "contractEnd", "Срок действия по" },
+                { "contractCondition", "Состояние договора" },
+                { "contractType", "Тип" },
+                { "contractsIDs", "ID договоров" },
+                { "number", "Редактируемый номер организации" },
 
         };
     }
