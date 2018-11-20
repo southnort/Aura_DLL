@@ -41,7 +41,7 @@ namespace Aura.Model
 
 
             if (DateEqual(pur.bidsFinishDate))
-                eventStr = "Подведение итогов";
+                eventStr = "Дата публикации итогового протокола";
             else if (DateEqual(pur.auctionDate)
                 && pur.protocolStatusID != 1
                 && pur.protocolStatusID != 2
