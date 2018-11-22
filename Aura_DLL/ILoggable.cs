@@ -5,6 +5,7 @@ namespace Aura.Model
     public interface ILoggable
     {
         string LogObjectName { get; }
-        string GetSqlString();
+        //строка для запроса логов объекта
+        string GetSqlStringForLog();
     }
 }

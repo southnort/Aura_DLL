@@ -71,6 +71,9 @@ namespace Aura.Model
             withoutPurchase = row[36] is DBNull ? 0 : (int)(long)row[36];
             organisationInn = row[37] is DBNull ? "" : (string)row[37];
 
+            stageID = row[38] is DBNull ? 0 : (int)(long)row[38];
+            bidsCount = row[39] is DBNull ? "0000" : (string)row[39];
+
         }
 
         public int id;                      //ИД закупки в БД
@@ -78,8 +81,8 @@ namespace Aura.Model
         public int organizationID;          //индекс организации - заказчика
         public int purchaseMethodID;        //индекс способа определения поставщика
         public string purchaseName;         //наименование объекта закупки
-        public int statusID;                //идентификатор статуса. Подача заявок, рассмотрение итд
-        public double purchacePrice;         //НМЦК, начальная цена
+        public int statusID;                //идентификатор статуса. Опубликована, завершена, отменена
+        public double purchacePrice;        //НМЦК, начальная цена
 
         public string purchaseEisNum;       //номер извещения в ЕИСе
         public DateTime purchaseEisDate;      //дата публикации извещения в ЕИС
@@ -110,7 +113,14 @@ namespace Aura.Model
         public int withAZK;                 //занесена ли закупка в АЦК. 0 - занесена, 1- нет
         public int employeDocumentationID;  //ID юзера, ответственного за подготовку документации
         public string resultOfControl;      //результаты проверки
-        public int protocolStatusID;        //статус протокола закупки
+        
+        /// <summary>
+        /// статус протокола закупки. 
+        /// двузначное число, читается поразрядно с конца.
+        /// единицы - статус по первым частям (последняя цифра)
+        /// десятки - статус по вторым частям (первая цифра)
+        /// </summary>
+        public int protocolStatusID;        
         public DateTime bidsReviewDate;       //дата рассмотрения заявок
         public DateTime bidsRatingDate;       //дата оценки заявок
         public int controlStatus;           //проверено или не проверено
@@ -128,6 +138,15 @@ namespace Aura.Model
         public int withoutPurchase;
         public string organisationInn;      //ИНН организации заказчика
 
+        public int stageID;                 //этап закупки. Вскрытие, рассмотрение итд
+        /// <summary>
+        /// количество заявок. 
+        /// четырёхзначное число текстом. 
+        /// каждый знак в строке - количество заявок на каждом этапе
+        /// </summary>
+        public string bidsCount;          
+
+
         public string LogObjectName { get { return "Журнал редактирования\n" + purchaseName; } }
 
         private DateTime ToDateTime(object ob)
@@ -135,8 +154,9 @@ namespace Aura.Model
             return Methods.ToDateTime(ob);
         }
 
-        public string GetSqlString()
+        public string GetSqlStringForLog()
         {
+            //строка для запроса логов объекта
             StringBuilder sb = new StringBuilder();
             sb.Append("SELECT * FROM Logs WHERE tableName = 'Purchases'");
             sb.Append(" AND itemID = '");

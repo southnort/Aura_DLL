@@ -8,15 +8,15 @@ namespace Aura.Model
 
 
         public string name { get; protected set; }
-        public Dictionary<int, string> purchaseStatuses;
+        public Dictionary<int, string> purchaseStages;
 
-        protected void CreateDictionary(List<int> statusIndexes)
+        protected void CreateDictionary(List<int> stageIndexes)
         {
-            //добавляем в словарь все доступные статусы по указанным индексам
-            purchaseStatuses = new Dictionary<int, string>();
-            foreach (var item in statusIndexes)
+            //добавляем в словарь все доступные этапы по указанным индексам
+            purchaseStages = new Dictionary<int, string>();
+            foreach (var item in stageIndexes)
             {
-                purchaseStatuses.Add(item, Catalog.allStatuses[item]);
+                purchaseStages.Add(item, Catalog.allStages[item]);
 
             }
 
@@ -31,8 +31,8 @@ namespace Aura.Model
         public EmptyPurchaseMethod()
         {
             name = "<не указано>";
-            var statusIndexes = new List<int>() { 0, };
-            CreateDictionary(statusIndexes);
+            var stageIndexes = new List<int>() { 0, };
+            CreateDictionary(stageIndexes);
         }
 
     }
@@ -43,11 +43,11 @@ namespace Aura.Model
         public AloneProvider()
         {
             name = "Единственный поставщик";
-            var statusIndexes = new List<int>()
+            var stageIndexes = new List<int>()
             {
-                0, 1, 8, 9,
+                0,
             };
-            CreateDictionary(statusIndexes);
+            CreateDictionary(stageIndexes);
         }
     }
 
@@ -58,11 +58,11 @@ namespace Aura.Model
         public DemandOfQuotation()
         {
             name = "Запрос котировок";
-            var statusIndexes = new List<int>()
+            var stageIndexes = new List<int>()
             {
-                0, 1, 2, 3, 4, 8, 9,
+                0, 1, 2, 3,
             };
-            CreateDictionary(statusIndexes);
+            CreateDictionary(stageIndexes);
         }
     }
 
@@ -72,11 +72,11 @@ namespace Aura.Model
         public DemandOfQuotationEF()
         {
             name = "Запрос котировок в ЭФ";
-            var statusIndexes = new List<int>()
+            var stageIndexes = new List<int>()
             {
-                0, 1, 2, 3, 4, 8, 9,
+                0, 1, 2, 3,
             };
-            CreateDictionary(statusIndexes);
+            CreateDictionary(stageIndexes);
         }
     }
 
@@ -87,11 +87,11 @@ namespace Aura.Model
         public Auction()
         {
             name = "Электронный аукцион";
-            var statusIndexes = new List<int>()
+            var stageIndexes = new List<int>()
             {
-                0, 1, 5, 6, 7, 8, 9,
+                0, 4, 5, 6,
             };
-            CreateDictionary(statusIndexes);
+            CreateDictionary(stageIndexes);
         }
     }
 
@@ -102,11 +102,11 @@ namespace Aura.Model
         public Konkurs()
         {
             name = "Конкурс";
-            var statusIndexes = new List<int>()
-            {
-                0, 1, 2, 3, 4, 8, 9,
+            var stageIndexes = new List<int>()
+            {                
+                0, 1, 2, 3, 
             };
-            CreateDictionary(statusIndexes);
+            CreateDictionary(stageIndexes);
         }
     }
 
@@ -116,11 +116,11 @@ namespace Aura.Model
         public KonkursEF()
         {
             name = "Конкурс в электронной форме";
-            var statusIndexes = new List<int>()
+            var stageIndexes = new List<int>()
             {
-                0, 1, 2, 3, 4, 8, 9,
+                0, 1, 2, 3,
             };
-            CreateDictionary(statusIndexes);
+            CreateDictionary(stageIndexes);
         }
     }
 
@@ -130,11 +130,11 @@ namespace Aura.Model
         public AuctionEF()
         {
             name = "Открытый аукцион в электронной форме";
-            var statusIndexes = new List<int>()
+            var stageIndexes = new List<int>()
             {
-                0, 1, 5, 6, 7, 8, 9,
+                0, 4, 5, 6,
             };
-            CreateDictionary(statusIndexes);
+            CreateDictionary(stageIndexes);
         }
     }
 

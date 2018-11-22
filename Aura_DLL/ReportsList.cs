@@ -15,7 +15,7 @@ namespace Aura.Model
         public List<Report> reports = new List<Report>();
         public string LogObjectName { get { return "Журнал обработки отчетов"; } }
 
-        public string GetSqlString()
+        public string GetSqlStringForLog()
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("SELECT * FROM Logs WHERE tableName = 'Reports'");

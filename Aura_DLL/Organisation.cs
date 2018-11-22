@@ -103,7 +103,7 @@ namespace Aura.Model
 
         public string LogObjectName { get { return "Журнал обработки оргиназации\n" + name; } }
 
-        public string GetSqlString()
+        public string GetSqlStringForLog()
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("SELECT * FROM Logs WHERE tableName = 'Organisations'");
