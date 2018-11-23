@@ -22,7 +22,10 @@ namespace Aura.Model
 
             colorMark = -1;
 
+            bidsCount = "0000";
+
         }
+        
 
         public Purchase(DataRow row)
         {
@@ -85,14 +88,14 @@ namespace Aura.Model
         public double purchacePrice;        //НМЦК, начальная цена
 
         public string purchaseEisNum;       //номер извещения в ЕИСе
-        public DateTime purchaseEisDate;      //дата публикации извещения в ЕИС
-        public DateTime bidsStartDate;        //дата начала подачи заявок
-        public DateTime bidsEndDate;          //дата окончания подачи заявок
-        public DateTime bidsOpenDate;         //дата вскрытия конвертов
-        public DateTime bidsFirstPartDate;    //дата рассмотрения первых частей
-        public DateTime auctionDate;          //дата проведения аукциона
-        public DateTime bidsSecondPartDate;   //дата рассмотрения вторых частей
-        public DateTime bidsFinishDate;       //дата подведения итогов
+        public DateTime purchaseEisDate;    //дата публикации извещения в ЕИС
+        public DateTime bidsStartDate;      //дата начала подачи заявок
+        public DateTime bidsEndDate;        //дата окончания подачи заявок
+        public DateTime bidsOpenDate;       //дата вскрытия конвертов
+        public DateTime bidsFirstPartDate;  //дата рассмотрения первых частей
+        public DateTime auctionDate;        //дата проведения аукциона
+        public DateTime bidsSecondPartDate; //дата рассмотрения вторых частей
+        public DateTime bidsFinishDate;     //дата подведения итогов
 
         public double contractPrice;         //цена заключенного контракта
         public DateTime contractDatePlan;     //НЕ ИСПОЛЬЗУЕТСЯ
@@ -144,7 +147,57 @@ namespace Aura.Model
         /// четырёхзначное число текстом. 
         /// каждый знак в строке - количество заявок на каждом этапе
         /// </summary>
-        public string bidsCount;          
+        public string bidsCount;
+
+
+        public int ProtocolStatus
+        {
+            get
+            {
+                if (stageID == 5)
+                    return protocolStatusID / 10;
+                else
+                    return
+                            protocolStatusID % 10;
+            }
+            set
+            {
+                if (stageID == 5)
+                {
+                    int delta = stageID % 10;
+                    stageID = value * 10 + delta;
+                }
+
+                else
+                {
+                    int delta = stageID / 10;
+                    stageID = delta * 10 + value;
+                }
+
+            }
+        }
+
+        public char BidsCountIndex
+        {
+            get
+            {
+                if (stageID == 5)
+                    return bidsCount[2];
+
+                else return bidsCount[3];
+            }
+
+            set
+            {
+                var charArray = bidsCount.ToCharArray();
+
+                if (stageID == 5)
+                    charArray[2] = value;
+                else charArray[3] = value;
+
+                bidsCount = charArray.ToString(); ;
+            }
+        }
 
 
         public string LogObjectName { get { return "Журнал редактирования\n" + purchaseName; } }
