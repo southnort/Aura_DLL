@@ -21,9 +21,7 @@ namespace Aura.Model
                 DateTime.MinValue;
 
             colorMark = -1;
-
-            bidsCount = "0000";
-
+            
         }
         
 
@@ -61,7 +59,7 @@ namespace Aura.Model
             withAZK = row[24] is DBNull ? 0 : (int)(long)row[24];
             employeDocumentationID = row[25] is DBNull ? 0 : (int)(long)row[25];
             resultOfControl = row[26] is DBNull ? "" : (string)row[26];
-            protocolStatusID = row[27] is DBNull ? 0 : (int)(long)row[27];
+            protocolStatusID1 = row[27] is DBNull ? 0 : (int)(long)row[27];
             bidsReviewDate = ToDateTime(row[28]);
             bidsRatingDate = ToDateTime(row[29]);
             controlStatus = row[30] is DBNull ? 0 : (int)(long)row[30];
@@ -75,7 +73,12 @@ namespace Aura.Model
             organisationInn = row[37] is DBNull ? "" : (string)row[37];
 
             stageID = row[38] is DBNull ? 0 : (int)(long)row[38];
-            bidsCount = row[39] is DBNull ? "0000" : (string)row[39];
+            bidsCount1 = row[39] is DBNull ? 0 : (int)(long)row[39];
+            bidsCount2 = row[40] is DBNull ? 0 : (int)(long)row[40];
+            bidsCount3 = row[41] is DBNull ? 0 : (int)(long)row[41];
+
+            protocolStatusID2 = row[42] is DBNull ? 0 : (int)(long)row[42];
+            protocolStatusID3 = row[43] is DBNull ? 0 : (int)(long)row[43];
 
         }
 
@@ -117,13 +120,8 @@ namespace Aura.Model
         public int employeDocumentationID;  //ID юзера, ответственного за подготовку документации
         public string resultOfControl;      //результаты проверки
         
-        /// <summary>
-        /// статус протокола закупки. 
-        /// двузначное число, читается поразрядно с конца.
-        /// единицы - статус по первым частям (последняя цифра)
-        /// десятки - статус по вторым частям (первая цифра)
-        /// </summary>
-        public int protocolStatusID;        
+        
+        public int protocolStatusID1;        
         public DateTime bidsReviewDate;       //дата рассмотрения заявок
         public DateTime bidsRatingDate;       //дата оценки заявок
         public int controlStatus;           //проверено или не проверено
@@ -141,62 +139,78 @@ namespace Aura.Model
         public int withoutPurchase;
         public string organisationInn;      //ИНН организации заказчика
 
-        public int stageID;                 //этап закупки. Вскрытие, рассмотрение итд
-        /// <summary>
-        /// количество заявок. 
-        /// четырёхзначное число текстом. 
-        /// каждый знак в строке - количество заявок на каждом этапе
-        /// </summary>
-        public string bidsCount;
+        public int stageID;                 //этап закупки. Вскрытие, рассмотрение итд        
+        public int bidsCount1;
+        public int bidsCount2;
+        public int bidsCount3;
+        public int protocolStatusID2;
+        public int protocolStatusID3;
 
 
         public int ProtocolStatus
         {
             get
             {
-                if (stageID == 5)
-                    return protocolStatusID / 10;
-                else
-                    return
-                            protocolStatusID % 10;
+                switch (stageID)
+                {                  
+                    case 2: return protocolStatusID2;
+                    case 3: return protocolStatusID3;
+                   
+                    case 5: return protocolStatusID2;
+                    case 6: return protocolStatusID3;
+
+                    default: return protocolStatusID1;
+                }
             }
+
+            
             set
             {
-                if (stageID == 5)
+                switch (stageID)
                 {
-                    int delta = stageID % 10;
-                    stageID = value * 10 + delta;
-                }
+                    case 2: protocolStatusID2 = value;break;
+                    case 3: protocolStatusID3 = value;break;
 
-                else
-                {
-                    int delta = stageID / 10;
-                    stageID = delta * 10 + value;
-                }
+                    case 5:protocolStatusID2 = value;break;
+                    case 6: protocolStatusID3 = value;break;
 
+                    default: protocolStatusID1 = value;break;
+                }
             }
         }
 
-        public char BidsCountIndex
+        public int BidsCountIndex
         {
             get
             {
-                if (stageID == 5)
-                    return bidsCount[2];
+                switch (stageID)
+                {
+                    case 2: return bidsCount2;
+                    case 3: return bidsCount3;
 
-                else return bidsCount[3];
+                    case 5: return bidsCount2;
+                    case 6: return bidsCount3;
+
+                    default: return bidsCount1;
+                }
+
             }
 
             set
             {
-                var charArray = bidsCount.ToCharArray();
+                switch (stageID)
+                {
+                    case 2: bidsCount2 = value; break;
+                    case 3: bidsCount3 = value; break;
 
-                if (stageID == 5)
-                    charArray[2] = value;
-                else charArray[3] = value;
+                    case 5: bidsCount2 = value; break;
+                    case 6: bidsCount3 = value; break;
 
-                bidsCount = charArray.ToString(); ;
+                    default: bidsCount1 = value; break;
+                }
+
             }
+
         }
 
 
