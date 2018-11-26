@@ -39,19 +39,22 @@ namespace Aura.Model
 
             string eventStr = "";
 
-
             if (DateEqual(pur.bidsFinishDate))
                 eventStr = "Дата публикации итогового протокола";
-            else if (DateEqual(pur.auctionDate)
-                && pur.ProtocolStatus != 1
-                && pur.ProtocolStatus != 2
-                && pur.ProtocolStatus != 5)
-                eventStr = "Аукцион";
-            else if (DateEqual(pur.bidsSecondPartDate)
-                && pur.ProtocolStatus != 1
-                && pur.ProtocolStatus != 2
-                && pur.ProtocolStatus != 5)
-                eventStr = "Вторые части";
+
+            else if (DateEqual(pur.auctionDate))
+            {
+                if (pur.BidsCountIndex == 2)
+                    eventStr = "Аукцион";
+            }
+
+            else if (DateEqual(pur.bidsSecondPartDate))
+            {
+                if(pur.BidsCountIndex == 2)
+                    eventStr = "Вторые части";
+            }
+
+            
             else if (DateEqual(pur.bidsFirstPartDate))
                 eventStr = "Первые части";
 
