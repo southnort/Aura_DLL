@@ -21,9 +21,9 @@ namespace Aura.Model
                 DateTime.MinValue;
 
             colorMark = -1;
-            
+
         }
-        
+
 
         public Purchase(DataRow row)
         {
@@ -73,7 +73,17 @@ namespace Aura.Model
             organisationInn = row[37] is DBNull ? "" : (string)row[37];
 
             stageID = row[38] is DBNull ? 0 : (int)(long)row[38];
-            bidsCount1 = row[39] is DBNull ? 0 : (int)(long)row[39];
+            try
+            {
+                bidsCount1 = row[39] is DBNull ? 0 : (int)(long)row[39];
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("\n\n_______________");
+                Console.WriteLine(row[39].GetType() + " #"+row[39]+"#");
+                Console.WriteLine("_______________\n\n");
+                throw ex;
+            }
             bidsCount2 = row[40] is DBNull ? 0 : (int)(long)row[40];
             bidsCount3 = row[41] is DBNull ? 0 : (int)(long)row[41];
 
@@ -119,9 +129,9 @@ namespace Aura.Model
         public int withAZK;                 //занесена ли закупка в АЦК. 0 - занесена, 1- нет
         public int employeDocumentationID;  //ID юзера, ответственного за подготовку документации
         public string resultOfControl;      //результаты проверки
-        
-        
-        public int protocolStatusID1;        
+
+
+        public int protocolStatusID1;
         public DateTime bidsReviewDate;       //дата рассмотрения заявок
         public DateTime bidsRatingDate;       //дата оценки заявок
         public int controlStatus;           //проверено или не проверено
@@ -152,10 +162,10 @@ namespace Aura.Model
             get
             {
                 switch (stageID)
-                {                  
+                {
                     case 2: return protocolStatusID2;
                     case 3: return protocolStatusID3;
-                   
+
                     case 5: return protocolStatusID2;
                     case 6: return protocolStatusID3;
 
@@ -163,18 +173,18 @@ namespace Aura.Model
                 }
             }
 
-            
+
             set
             {
                 switch (stageID)
                 {
-                    case 2: protocolStatusID2 = value;break;
-                    case 3: protocolStatusID3 = value;break;
+                    case 2: protocolStatusID2 = value; break;
+                    case 3: protocolStatusID3 = value; break;
 
-                    case 5:protocolStatusID2 = value;break;
-                    case 6: protocolStatusID3 = value;break;
+                    case 5: protocolStatusID2 = value; break;
+                    case 6: protocolStatusID3 = value; break;
 
-                    default: protocolStatusID1 = value;break;
+                    default: protocolStatusID1 = value; break;
                 }
             }
         }
