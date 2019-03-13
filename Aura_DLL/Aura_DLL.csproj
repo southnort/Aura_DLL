@@ -50,6 +50,7 @@
     <Compile Include="Catalog.cs" />
     <Compile Include="Contract.cs" />
     <Compile Include="DayInCalendar.cs" />
+    <Compile Include="DocumentationNode.cs" />
     <Compile Include="ILoggable.cs" />
     <Compile Include="LogNode.cs" />
     <Compile Include="Methods.cs" />

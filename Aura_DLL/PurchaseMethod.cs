@@ -71,7 +71,7 @@ namespace Aura.Model
         //запрос котировок в электронной форме
         public DemandOfQuotationEF()
         {
-            name = "Запрос котировок в ЭФ";
+            name = "Открытый запрос котировок в электронной форме";
             var stageIndexes = new List<int>()
             {
                 0, 1, 2, 3,
