@@ -18,6 +18,12 @@ namespace Aura.Model
             }
         }
 
+        public Calendar(List<DocumentationNode> documentationNodes)
+        {
+            foreach (var node in documentationNodes)
+                Add(node);
+        }
+
         public List<DayInCalendar> GetDays(int month,int year)
         {
             //создаем лист дней для выбранного месяца
@@ -66,6 +72,12 @@ namespace Aura.Model
 
         }
 
+        private void Add(DocumentationNode node)
+        {
+            Add(node.nodeDate, node);
+        }
+
+
 
 
 
@@ -79,6 +91,18 @@ namespace Aura.Model
             }
 
             this[tempDateTime].Add(purchase);
+
+        }
+
+        private void Add(DateTime date, DocumentationNode node)
+        {
+            DateTime tempDateTime = new DateTime(date.Year, date.Month, date.Day);
+            if (!ContainsKey(tempDateTime))
+                {
+                Add(tempDateTime, new DayInCalendar(tempDateTime));
+            }
+
+            this[tempDateTime].AddDocumentNode(node);
 
         }
 

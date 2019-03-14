@@ -16,10 +16,13 @@ namespace Aura.Model
 
         public DateTime date { get; private set; }
         private List<Purchase> purchases = new List<Purchase>();
+        public List<DocumentationNode> documentationNodes = new List<DocumentationNode>();
 
         public Dictionary<Purchase, string> events =
         new Dictionary<Purchase, string>(); //описание событий в этот день 
 
+
+     
 
         public void Add(Purchase purchase)
         {
@@ -82,6 +85,12 @@ namespace Aura.Model
                 date.Month == purDate.Month &&
                 date.Day == purDate.Day
                 );
+        }
+
+
+        public void AddDocumentNode(DocumentationNode node)
+        {
+            documentationNodes.Add(node);
         }
 
     }
