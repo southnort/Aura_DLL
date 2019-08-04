@@ -51,6 +51,7 @@ namespace Aura.Model
             new Konkurs(),              //5
             new KonkursEF(),            //6                
             new AuctionEF(),            //7
+            new AuctionEF_SMP(),        //8
 
         };
 

@@ -138,6 +138,20 @@ namespace Aura.Model
         }
     }
 
+    public class AuctionEF_SMP : PurchaseMethod
+    {
+        //Аукцион в электронной форме, участниками которого могут быть только субъекты малого и среднего предпринимательства
+        public AuctionEF_SMP()
+        {
+            name = "Аукцион в электронной форме, участниками которого могут быть только субъекты малого и среднего предпринимательства";
+            var stageIndexes = new List<int>()
+            {
+                0, 4, 5, 6,
+            };
+            CreateDictionary(stageIndexes);
+        }
+    }
+
 
 }
 
