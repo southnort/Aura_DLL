@@ -1,0 +1,6 @@
+C:\Users\Ярик\Documents\Projects\Auda_DLL\Aura_DLL\bin\Release\Aura_DLL.dll.config
+C:\Users\Ярик\Documents\Projects\Auda_DLL\Aura_DLL\bin\Release\Aura_DLL.dll
+C:\Users\Ярик\Documents\Projects\Auda_DLL\Aura_DLL\bin\Release\Aura_DLL.pdb
+C:\Users\Ярик\Documents\Projects\Auda_DLL\Aura_DLL\obj\Release\Aura_DLL.csproj.CoreCompileInputs.cache
+C:\Users\Ярик\Documents\Projects\Auda_DLL\Aura_DLL\obj\Release\Aura_DLL.dll
+C:\Users\Ярик\Documents\Projects\Auda_DLL\Aura_DLL\obj\Release\Aura_DLL.pdb
