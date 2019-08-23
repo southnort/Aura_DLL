@@ -32,7 +32,8 @@ namespace Aura.Model
             //добавляем в нужные пустые дни события из календаря
             foreach (var pair in this)
             {
-                if (pair.Key.Month == month)
+                if (pair.Key.Month == month
+                    && pair.Key.Year == year)
                     days.Add(pair.Value);
             }
 
