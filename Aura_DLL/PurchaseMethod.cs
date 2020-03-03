@@ -1,13 +1,13 @@
 ﻿using System.Collections.Generic;
+using System.Data;
 
 namespace Aura.Model
 {
     public abstract class PurchaseMethod
     {
         //класс, описывающий метод закупки
-
-
-        public string name { get; protected set; }
+        public int id { get; set; }
+        public string name { get; set; }
         public Dictionary<int, string> purchaseStages;
 
         protected void CreateDictionary(List<int> stageIndexes)
@@ -21,7 +21,6 @@ namespace Aura.Model
             }
 
         }
-
 
     }
 
