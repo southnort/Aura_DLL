@@ -1,15 +1,27 @@
 ﻿using System.Collections.Generic;
 using System.Data;
+using System;
 
 namespace Aura.Model
 {
-    public abstract class PurchaseMethod
+    [System.Serializable]
+    public class PurchaseMethod
     {
         //класс, описывающий метод закупки
         public int id { get; set; }
         public string name { get; set; }
-        public Dictionary<int, string> purchaseStages;
+        public int isActual;    //0 - неактуальный 1- актуальный
 
+        public PurchaseMethod() { }
+        public PurchaseMethod(DataRow row)
+        {
+            id = row[0] is DBNull ? 0 : (int)(long)row[0];
+            isActual = row[1] is DBNull ? 0 : (int)(long)row[1];
+            name = row[2] is DBNull ? "" : (string)row[2];
+        }
+
+        public Dictionary<int, string> purchaseStages;
+      
         protected void CreateDictionary(List<int> stageIndexes)
         {
             //добавляем в словарь все доступные этапы по указанным индексам
