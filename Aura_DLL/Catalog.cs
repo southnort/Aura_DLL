@@ -15,19 +15,19 @@ namespace Aura.Model
 
         };
 
-        public static List<string> allStages = new List<string>()
-        {
-            "<не указано>",         //0
+        //public static List<string> allStages = new List<string>()
+        //{
+        //    "<не указано>",         //0
 
-            "Вскрытие конвертов",   //1
-            "Рассмотрение",         //2
-            "Оценка",               //3
+        //    "Вскрытие конвертов",   //1
+        //    "Рассмотрение",         //2
+        //    "Оценка",               //3
 
-            "Первые части",         //4
-            "Вторые части",         //5
-            "Итоговый протокол",    //6
+        //    "Первые части",         //4
+        //    "Вторые части",         //5
+        //    "Итоговый протокол",    //6
 
-        };
+        //};
 
         public static List<string> countOfBidsTexts = new List<string>()
         {
@@ -39,21 +39,21 @@ namespace Aura.Model
         };
 
 
-        public static List<PurchaseMethod> purchaseMethods = new List<PurchaseMethod>()
-        {
-            //методы осуществления закупок
-            //статусы закупок тоже здесь
-            new EmptyPurchaseMethod(),  //0
-            new AloneProvider(),        //1
-            new DemandOfQuotation(),    //2
-            new DemandOfQuotationEF(),  //3
-            new Auction(),              //4
-            new Konkurs(),              //5
-            new KonkursEF(),            //6                
-            new AuctionEF(),            //7
-            new AuctionEF_SMP(),        //8
+        //public static List<PurchaseMethod> purchaseMethods = new List<PurchaseMethod>()
+        //{
+        //    //методы осуществления закупок
+        //    //статусы закупок тоже здесь
+        //    new EmptyPurchaseMethod(),  //0
+        //    new AloneProvider(),        //1
+        //    new DemandOfQuotation(),    //2
+        //    new DemandOfQuotationEF(),  //3
+        //    new Auction(),              //4
+        //    new Konkurs(),              //5
+        //    new KonkursEF(),            //6                
+        //    new AuctionEF(),            //7
+        //    new AuctionEF_SMP(),        //8
 
-        };
+        //};
 
         public static List<string> protocolStatuses = new List<string>()
         {

@@ -12,30 +12,34 @@ namespace Aura.Model
         public string name { get; set; }
         public int isActual;    //0 - неактуальный 1- актуальный
 
-        public PurchaseMethod() { }
+        public PurchaseMethod()
+        {
+            purchaseStages = new Dictionary<int, string>();
+        }
         public PurchaseMethod(DataRow row)
         {
+            purchaseStages = new Dictionary<int, string>();
             id = row[0] is DBNull ? 0 : (int)(long)row[0];
             isActual = row[1] is DBNull ? 0 : (int)(long)row[1];
             name = row[2] is DBNull ? "" : (string)row[2];
         }
 
         public Dictionary<int, string> purchaseStages;
-      
-        protected void CreateDictionary(List<int> stageIndexes)
-        {
-            //добавляем в словарь все доступные этапы по указанным индексам
-            purchaseStages = new Dictionary<int, string>();
-            foreach (var item in stageIndexes)
-            {
-                purchaseStages.Add(item, Catalog.allStages[item]);
 
-            }
+        //protected void CreateDictionary(List<int> stageIndexes)
+        //{
+        //    //добавляем в словарь все доступные этапы по указанным индексам
+        //    purchaseStages = new Dictionary<int, string>();
+        //    foreach (var item in stageIndexes)
+        //    {
+        //        purchaseStages.Add(item, Catalog.allStages[item]);
 
-        }
+        //    }
+
+        //}
 
     }
-
+    /*
     public class EmptyPurchaseMethod : PurchaseMethod
     {
         //пустой метод определения поставщика
@@ -162,7 +166,7 @@ namespace Aura.Model
             CreateDictionary(stageIndexes);
         }
     }
-
+    */
 
 }
 
